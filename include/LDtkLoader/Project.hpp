@@ -32,6 +32,8 @@ namespace ldtk {
 
         void loadFromFile(const std::string& filepath);
         void loadFromFile(const std::string& filepath, const FileLoader& file_loader);
+        // Simplified C-string loading
+        int  Load (char const * filepath);
 
         void loadFromMemory(const std::vector<std::uint8_t>& bytes);
         void loadFromMemory(const unsigned char* data, size_t size);

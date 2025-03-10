@@ -44,6 +44,20 @@ void Project::loadFromFile(const std::string& filepath, const FileLoader& file_l
     load(j, file_loader, false);
 }
 
+//=============================================================================
+// Simplified C-string loading, without exception handling
+int Project::Load (char const * filepath) {
+    m_file_path = filepath;
+
+    std::ifstream in(filepath);
+    if (in.fail())
+        return errno;
+
+    nlohmann::json const j = nlohmann::json::parse(in, nullptr, false, true);
+    load(j, nullptr, false);
+    return 0;
+}
+
 void Project::loadFromMemory(const std::vector<std::uint8_t>& bytes)
 {
     loadFromMemory(bytes.data(), bytes.size());
