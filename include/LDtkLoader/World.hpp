@@ -28,6 +28,8 @@ namespace ldtk {
 
         const IID iid;
 
+        unsigned int GetID () const;
+
         auto getName() const -> const std::string&;
 
         auto getDefaultPivot() const -> const FloatPoint&;

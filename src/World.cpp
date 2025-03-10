@@ -64,6 +64,11 @@ World::World(unsigned int           id,
     }
 }
 
+//=============================================================================
+unsigned int World::GetID () const {
+    return m_id;
+}
+
 auto World::getName() const -> const std::string&
 {
     return m_name;
