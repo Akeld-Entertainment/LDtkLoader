@@ -12,8 +12,13 @@
 
 using namespace ldtk;
 
-World::World(const nlohmann::json& j, Project* p, const FileLoader& file_loader, bool external_levels)
+World::World(unsigned int           id,
+             const nlohmann::json&  j,
+             Project*               p,
+             const FileLoader&      file_loader,
+             bool                   external_levels)
 : iid(j.contains("iid") ? j["iid"].get<std::string>() : "")
+, m_id(id)
 , m_project(p)
 , m_name(j.contains("identifier") ? j["identifier"].get<std::string>() : "")
 , m_layout(getWorldLayoutFromString(j["worldLayout"].get<std::string>()))

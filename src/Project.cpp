@@ -318,11 +318,12 @@ void Project::load(const nlohmann::json& j, const FileLoader& file_loader, bool 
     }
 
     if (j["worlds"].empty()) {
-        m_worlds.emplace_back(j, this, file_loader, external_levels);
+        m_worlds.emplace_back(-1, j, this, file_loader, external_levels);
     }
     else {
-        for (const auto& world : j["worlds"]) {
-            m_worlds.emplace_back(world, this, file_loader, external_levels);
+        unsigned int id = 0;
+        for (auto& world : j["worlds"]) {
+            m_worlds.emplace_back(id++, world, this, file_loader, external_levels);
         }
     }
 
