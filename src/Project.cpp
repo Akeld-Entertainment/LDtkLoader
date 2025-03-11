@@ -220,6 +220,10 @@ auto Project::getTocEntitiesByName(const std::string& name) const -> const std::
     return m_toc_map[name];
 }
 
+std::unordered_map<int, ref_wrapper<EntityDef>> Project::GetEntities () const {
+    return m_entities_defs_by_uid;
+}
+
 void Project::load(const nlohmann::json& j, const FileLoader& file_loader, bool from_memory)
 {
     if (j.contains("iid")) {

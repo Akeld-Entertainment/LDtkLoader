@@ -67,6 +67,8 @@ namespace ldtk {
         auto allTocEntities() const -> const std::vector<EntityRef>&;
         auto getTocEntitiesByName(const std::string& name) const -> const std::vector<EntityRef>&;
 
+        std::unordered_map<int, ref_wrapper<EntityDef>> GetEntities () const;
+
     private:
         void load(const nlohmann::json& j, const FileLoader& file_loader, bool from_memory);
 
