@@ -38,6 +38,12 @@ auto EnumValue::getIconTextureRect() const -> const IntRect&
     return tile_rect;
 }
 
+//=============================================================================
+int EnumValue::GetID () const {
+    return id;
+}
+
+
 auto ldtk::operator==(const EnumValue& l, const EnumValue& r) -> bool
 {
     return (l.id == r.id) && (l.type.uid == r.type.uid);
