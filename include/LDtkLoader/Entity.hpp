@@ -34,6 +34,8 @@ namespace ldtk {
         const Layer* const layer;
         const IID iid;
 
+        unsigned int GetID () const;
+
         auto getName() const -> const std::string&;
         auto getSize() const -> const IntPoint&;
         auto getColor() const -> const Color&;

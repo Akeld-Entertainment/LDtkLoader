@@ -25,6 +25,11 @@ Entity::Entity(const nlohmann::json& j, const World* w, const Layer* l)
   )
 {}
 
+//=============================================================================
+unsigned int Entity::GetID () const {
+    return (unsigned int)m_definition->uid;
+}
+
 auto Entity::getName() const -> const std::string&
 {
     return m_definition->name;
